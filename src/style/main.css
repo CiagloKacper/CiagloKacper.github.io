@@ -1,0 +1,139 @@
+*{
+    font-family: Monaco;
+}
+
+.upperbtn {
+    z-index: 100;
+}
+
+.mainLink {
+    color: white !important;
+    z-index: 100;
+}
+
+.Navbar_main {
+    position: relative;
+    z-index: 99;
+}
+.nav-overlay {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.HomeTitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    font-weight: bold;
+}
+
+.aboutBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255, 104,131);
+}
+.verticalRow {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    height: 70%;
+    width: 10px !important;
+    opacity: 1 !important;
+    border-radius: 4px;
+}
+.aboutEl{
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    animation-name: floating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0px, 2px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes floating_photo {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(0px, 3px);
+    }
+    50% {
+        transform: translate(1px, 1px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+.about_photo {
+    max-height: 200px;
+    animation-name: floating_photo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border: 8px solid transparent;
+    border-radius: 10%;
+}
+
+.pe {
+    color: white;
+    text-align: center;
+    animation-name: floating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.about_content {
+    display: relative;
+    text-align: center;
+}
+
+.link{
+    color: white;
+}
+.link:hover{
+    color: rgb(233, 233, 233);
+}

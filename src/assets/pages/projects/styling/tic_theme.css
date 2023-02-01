@@ -1,0 +1,69 @@
+body {
+    background-image: url('../../../images/wall.jpeg');
+}
+h2, h3 {
+    color: white;
+    font-weight: bold;
+    animation-name: game;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes game {
+    0%{ transform: translate(0px, 0px); }
+    50%{ transform: translate(0px, 10px); }
+    100%{ transform: translate(0px, 0px); }
+}
+
+.gamewrap {
+    background-color: rgba(240, 255, 255, 0.9);
+    border-radius: 15%;
+    padding-top: 20px;
+    box-shadow: 10px 10px 10px(black);
+}
+.game{
+    height: 300px;
+    width: 300px;
+}
+.game button{
+    height: 100px;
+    appearance: none;
+    border: 1px solid var(--black);
+    outline: none;
+    cursor: pointer;
+}
+.playBtn {
+    background-color: salmon;
+    transition: 0.5s;
+}
+.playBtnDis {
+    background-color: rgb(249, 147, 136);
+    color: black;
+}
+.resetBtn {
+    width: 25%;
+    height: 10%;
+    border: none;
+    border-radius: 10%;
+    transition: 0.2s;
+    background-color: orange;
+}
+.resetBtn:hover {
+    transition: -4px;
+    width: 25%;
+    height: 10%;
+    transform: translate(0px, -4px);
+    border: none;
+    border-radius: 10%;
+    background-color: rgb(236, 153, 0);
+}
+.resetBtn:active {
+    width: 25%;
+    height: 10%;
+    border: none;
+    border-radius: 10%;
+    transform: translate(0px, -4px);
+    transform: scale(0.99);
+    background-color: orange;
+}

@@ -1,0 +1,79 @@
+h2, h3 {
+    text-align: center;
+}
+.cliper {
+    position: relative;
+    width: 250px;
+    height: 300px;
+}
+.Card {
+   width: 100%;
+   height: 100%;
+   background-color: antiquewhite;
+    width: 250px;
+    height: 300px;
+    border: 1px solid black;
+    box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.6);
+    border-radius: 2%;
+    transition: all 0.3s ease-out;
+    transform: rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.cliper:hover{
+    transform: scale(1.05);
+}
+.point {
+    position: absolute;
+    width: 33.33%;
+    height: 33.33%;
+    z-index: 99;
+}
+.point:nth-child(1){top: 0; left: 0;}
+.point:nth-child(2){top: 0; left: 33.33%;}
+.point:nth-child(3){top: 0; left: 66.66%;}
+.point:nth-child(4){top: 33.33%; left: 0;}
+.point:nth-child(5){top: 33.33%; left: 33.33%;}
+.point:nth-child(6){top: 33.33%; left: 66.66%;}
+.point:nth-child(7){top: 66.66%; left: 0;}
+.point:nth-child(8){top: 66.66%; left: 33.33%;}
+.point:nth-child(9){top: 66.66%; left: 66.66%;}
+
+.point:nth-child(1):hover ~ .Card{transform: rotateX(-10deg) rotateY(10deg); }
+.point:nth-child(2):hover ~ .Card{transform: rotateX(-10deg) rotateY(0deg); }
+.point:nth-child(3):hover ~ .Card{transform: rotateX(-10deg) rotateY(-10deg); }
+.point:nth-child(4):hover ~ .Card{transform: rotateX(0deg) rotateY(10deg); }
+.point:nth-child(5):hover ~ .Card{transform: rotateX(0deg) rotateY(0deg); }
+.point:nth-child(6):hover ~ .Card{transform: rotateX(0deg) rotateY(-10deg); }
+.point:nth-child(7):hover ~ .Card{transform: rotateX(10deg) rotateY(10deg); }
+.point:nth-child(8):hover ~ .Card{transform: rotateX(10deg) rotateY(0deg); }
+.point:nth-child(9):hover ~ .Card{transform: rotateX(10deg) rotateY(-10deg); }
+
+.title {
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translate(-50%, 0) translateZ(12px);
+    text-align: center;
+    font-weight: bold; 
+    text-shadow: 0px 0px 2px #46464698;
+}
+.photo_wrap{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+}
+.photo {
+    width: 250px;
+    object-fit: cover;
+}
+.wip {
+    position: absolute;
+    top:35%;
+    transform: translateZ(12px);
+    color: black;
+}
+.work {
+    width: 40px;
+}

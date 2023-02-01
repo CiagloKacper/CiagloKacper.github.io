@@ -1,0 +1,45 @@
+:root {
+    --black: #333333;
+    --ops: #ff0066;
+}
+body {
+    background-image: url('../../../images/wall.jpeg');
+}
+.calculator {
+    box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.3);
+    font-size: 32px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.calculator button {
+    height: 60px;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.calculator button:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.res {
+    padding: 5px;
+    vertical-align: middle;
+    height: 60px;
+    background-color: var(--black);
+    color: whitesmoke;
+}
+
+.ops button {
+    color: var(--black);
+    background-color: var(--ops);
+}
+
+.nums button {
+    color: whitesmoke;
+    background-color: var(--black);
+}
