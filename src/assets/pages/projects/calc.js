@@ -10,8 +10,8 @@ function Calculator() {
 
     const updateCalc = value =>{
         if(
-            ops.includes(value) && Calc === '' ||
-            ops.includes(value) && ops.includes(Calc.slice(-1))
+            (ops.includes(value) && Calc === '') ||
+            (ops.includes(value) && ops.includes(Calc.slice(-1)))
         )
             return
 
@@ -37,15 +37,16 @@ function Calculator() {
 
     const equal = () => {
         setCalc(eval(Calc).toString())
+        SetResult('');
     }
 
 
     return (
         <div className="container-fluid">
-            <div className="calculator w-50 mx-auto my-5 border rounded fw-bold">
+            <div className="calculator mx-auto my-5 border rounded fw-bold">
                 <div className="res text-end">
-                    {Result? <span>({Result})</span> : ''} &nbsp;
-                    {Calc || "0"}
+                    {Calc || "0"} <br/>
+                    {Result? <span>({Result})</span> : ''}
                 </div>
                 <div className="row ops mx-auto w-100">
                     <div className="col m-0 p-0">
@@ -107,7 +108,7 @@ function Calculator() {
                             <button type="button" className="w-100"onClick={()=> updateCalc('.')}>.</button>
                         </div>
                         <div className="col m-0 p-0">
-                            <button type="button" className="w-100"onClick={()=> updateCalc('7')}>0</button>
+                            <button type="button" className="w-100"onClick={()=> updateCalc('0')}>0</button>
                         </div>
                         <div className="col m-0 p-0">
                             <button type="button" className="w-100" onClick={()=>equal()}>=</button>

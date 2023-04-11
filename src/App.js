@@ -1,53 +1,58 @@
 import "./App.css";
 import "./style/main.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Container, Offcanvas, Button } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
+import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import RouteWrapper from "./assets/RouteWrapper";
 
 
 function App() {
 
+  const location = useLocation();
+
+  const routes = [
+    '/', '/about', '/projects', '/projects/calculator', '/projects/tictac'
+  ];
+  const [active, setActive] = useState(routes.indexOf(location.pathname));
+
   //mobile offcanvas
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  //currency update and local storage
-  const [curr, changeCurr] = useState("PLN");
-  const currUpdate = (val) => {
-    localStorage.setItem("currency", val);
-    changeCurr(localStorage.getItem("currency"));
-  };
-
   //language update and local storage
-  const [Lang, changeLang] = useState("pl");
-  const langUpdate = (val) => {
-    localStorage.setItem("language", val);
-    changeLang(localStorage.getItem("language"));
-    window.location.reload(false);
-  };
+  // const [Lang, changeLang] = useState("pl");
+  // const langUpdate = (val) => {
+  //   localStorage.setItem("language", val);
+  //   changeLang(localStorage.getItem("language"));
+  //   window.location.reload(false);
+  // };
 
   //load storage data
-  useEffect(() => {
-    if (localStorage.getItem("language") != null && localStorage.getItem("currency") != null) {
-      changeLang(localStorage.getItem("language"));
-      changeCurr(localStorage.getItem("currency"));
-    } else {
-      changeLang("pl");
-      localStorage.setItem("language", "pl");
-      changeCurr("PLN");
-      localStorage.setItem("currency", "PLN");
-    }
-  });
+  // useEffect(() => {
+  //   if (localStorage.getItem("language") != null ) {
+  //     changeLang(localStorage.getItem("language"));
+  //   } else {
+  //     changeLang("pl");
+  //     localStorage.setItem("language", "pl");
+  //   }
+  // });
 
+  useEffect(()=>{
+    getLocation();  
+  }, [location]);
+
+  const getLocation = ()=>{
+    if (routes.includes(location.pathname)){
+      setActive(routes.indexOf(location.pathname));
+    }
+  }
 
   return (
-    <Router>
+    <div>
       <Navbar
         style={{
-          backgroundColor: "var(--main)",
           boxShadow: "0px 3px 4px rgba(0, 0, 0, 0.25)",
         }}
         className="Navbar_main"
@@ -56,15 +61,15 @@ function App() {
         <div className="nav-overlay"></div>
         <Container>
           <Navbar.Brand href="/" style={{zIndex:"100"}}>
-            Brand
+            Kacper
           </Navbar.Brand>
           <Nav>
             <Nav className="me-auto d-none d-md-flex">
-              <Nav.Link href="/" className="mainLink">Home page</Nav.Link>
+              <Nav.Link as={Link} to="/" className={`mainLink ${active === 0 ? 'nav-active' : ''}`}>Home page</Nav.Link>
               <div className="vr my-1 mx-4" />
-              <Nav.Link href='/about' className="mainLink">About me</Nav.Link>
+              <Nav.Link as={Link} to="/about" className={`mainLink ${active === 1 ? 'nav-active' : ''}`}>About me</Nav.Link>
               <div className="vr my-1 mx-4" />
-              <Nav.Link href='/projects' className="mainLink">My projects</Nav.Link>
+              <Nav.Link as={Link} to="/projects" className={`mainLink ${active === 2 ? 'nav-active' : ''}`}>My projects</Nav.Link>
             </Nav>
             <Button
               className="d-md-none upperbtn"
@@ -89,20 +94,19 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-
         {/* MOBILE */}
         <Offcanvas
           show={show}
-          className="d-block d-md-none"
+          className="d-block d-md-none offBgc"
           onHide={handleClose}
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>MareckiTour</Offcanvas.Title>
+            <Offcanvas.Title>Kacper</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body style={{ maxWidth: "400px" }}>
             <hr className="my-2" />
             <Nav.Link
-              className="Offcanv d-flex"
+              className={`Offcanv d-flex ${active === 0 ? 'off-active' : ''}`}
               onClick={handleClose}
               as={Link}
               to="/"
@@ -113,7 +117,7 @@ function App() {
             </Nav.Link>
             <hr className="my-2" />
             <Nav.Link
-              className="Offcanv d-flex"
+              className={`Offcanv d-flex ${active === 1 ? 'off-active' : ''}`}
               onClick={handleClose}
               as={Link}
               to="/about"
@@ -124,7 +128,7 @@ function App() {
             </Nav.Link>
             <hr className="my-2" />
             <Nav.Link
-              className="Offcanv d-flex logout-btn"
+              className={`Offcanv d-flex ${active === 2 ? 'off-active' : ''}`}
               onClick={handleClose}
               as={Link}
               to="/projects"
@@ -134,7 +138,7 @@ function App() {
               </p>
             </Nav.Link>
             <hr className="my-2" />
-            <Container className="d-flex">
+            {/* <Container className="d-flex">
               <p
                 className="my-auto fw-semibold me-2"
                 style={{ fontSize: "16px" }}
@@ -155,27 +159,7 @@ function App() {
                 <NavDropdown.Item eventKey="DE"><span className="nav-dropdown-text">DE</span></NavDropdown.Item>
               </NavDropdown>
               <div className="vr m-1" />
-              <NavDropdown
-                title={
-                  <span className="Marecki">
-                    <p className="d-inline p-1 fw-bolder">{curr}</p>
-                  </span>
-                }
-                className="my-auto nav-dropdown"
-                onSelect={currUpdate}
-              >
-                <NavDropdown.Item eventKey="PLN">
-                 <span className="nav-dropdown-text">PLN</span></NavDropdown.Item>
-                <NavDropdown.Item eventKey="EUR">
-                  <span className="nav-dropdown-text">EUR</span></NavDropdown.Item>
-              </NavDropdown>
-            </Container>
-            <hr className="my-2" />
-            <Container className="w-100">
-              <Nav.Link className="Offcanv">ustawienia</Nav.Link>
-              <Nav.Link className="Offcanv">ustawienia</Nav.Link>
-              <Nav.Link className="Offcanv">ustawienia</Nav.Link>
-            </Container>
+            </Container> */}
           </Offcanvas.Body>
         </Offcanvas>
       {/* routes */}
@@ -201,7 +185,7 @@ function App() {
             path="/account/settings"
             element={<RequireLogin><PanelSettings /></RequireLogin>}
           /> */}
-    </Router>
+    </div>
   );
 }
 

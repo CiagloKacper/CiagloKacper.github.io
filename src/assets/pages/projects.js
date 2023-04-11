@@ -2,8 +2,8 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import './projects/styling/proj_theme.css';
 import Calc from '../images/calculator.png';
+import Typer from '../images/typer.png';
 import Tic from '../images/tictactoe.png';
-import Wrench from '../images/wrench.gif'
 import { useNavigate } from "react-router-dom";
 
 function Projects() {
@@ -20,7 +20,7 @@ function Projects() {
             <Container>
                 <Row className="d-flex my-4">
                     <Col className="my-2" >
-                        <Container className="cliper" onClick={()=>{navigate('/projects/tictac')}}>
+                        <Container className="cliper" onClick={() => { navigate('/projects/tictac') }}>
                             <span className="point"></span>
                             <span className="point"></span>
                             <span className="point"></span>
@@ -39,7 +39,7 @@ function Projects() {
                         </Container>
                     </Col>
                     <Col className="my-2" >
-                        <Container className="cliper" onClick={()=>{navigate('/projects/calculator')}}>
+                        <Container className="cliper" onClick={() => { navigate('/projects/calculator') }}>
                             <span className="point"></span>
                             <span className="point"></span>
                             <span className="point"></span>
@@ -58,6 +58,25 @@ function Projects() {
                         </Container>
                     </Col>
                     <Col className="my-2" >
+                        <Container className="cliper" onClick={() => { navigate('/projects/typer') }}>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <span className="point"></span>
+                            <div className="Card">
+                                <div className="photo_wrap">
+                                    <img src={Typer} className='photo' alt='' />
+                                </div>
+                                <p className="title">Typer</p>
+                            </div>
+                        </Container>
+                    </Col>
+                    {/* <Col className="my-2" >
                         <Container className="cliper">
                             <span className="point"></span>
                             <span className="point"></span>
@@ -72,57 +91,7 @@ function Projects() {
                                 <h3 className="wip">Work in Progress <img src={Wrench} className='work' alt='' /></h3>
                             </div>
                         </Container>
-                    </Col>
-                </Row>
-                <Row className="mb-4">
-                    <Col className="my-2" >
-                        <Container className="cliper">
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <div className="Card">
-                                <h3 className="wip">Work in Progress <img src={Wrench} className='work' alt='' /></h3>
-                            </div>
-                        </Container>
-                    </Col>
-                    <Col className="my-2" >
-                        <Container className="cliper">
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <div className="Card">
-                                <h3 className="wip">Work in Progress <img src={Wrench} className='work' alt='' /></h3>
-                            </div>
-                        </Container>
-                    </Col>
-                    <Col className="my-2" >
-                        <Container className="cliper">
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <span className="point"></span>
-                            <div className="Card">
-                                <h3 className="wip">Work in Progress <img src={Wrench} className='work' alt='' /></h3>
-                            </div>
-                        </Container>
-                    </Col>
+                    </Col> */}
                 </Row>
             </Container>
 

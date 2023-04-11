@@ -67,3 +67,20 @@ h2, h3 {
     transform: scale(0.99);
     background-color: orange;
 }
+
+.modalBody{
+    background-color: rgb(213, 213, 213);
+    
+}
+.modalBTN, .modalBTNres{
+    width: 25%;
+    color: black;
+    background-color: transparent;
+    border:  1px solid black;
+}
+.modalBTN:hover{
+    background-color: rgb(255, 84, 84);
+}
+.modalBTNres:hover{
+    background-color: rgb(90, 84, 255);
+}

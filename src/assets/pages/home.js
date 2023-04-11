@@ -2,7 +2,7 @@ import "../../style/main.css";
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import BgGif from '../background/main_background.gif'
+import BgGif from '../background/main.gif'
 import Aos from "aos";
 import 'aos/dist/aos.css'
 
@@ -14,14 +14,14 @@ function HomePage() {
 
   return (
     <Container fluid>
-      <div className="overlay"></div>
+      
       <img src={BgGif} className='background' alt="" />
       <div className="HomeTitle w-100">
-        <p data-aos="fade-left">Kacper Ciągło</p>
-        <h1 data-aos="fade-right" data-aos-duration="800">
+        <p  className="welcome_title" data-aos="fade-left">Kacper Ciągło</p>
+        <h1 className="welcome_title"  data-aos="fade-right" data-aos-duration="800">
           FRONT-END DEV
         </h1>
-        <p data-aos="fade-left">
+        <p className="welcome_title"  data-aos="fade-left">
           from Opole, Poland
         </p>
       </div>

@@ -1,4 +1,4 @@
-*{
+* {
     font-family: Monaco;
 }
 
@@ -8,20 +8,68 @@
 
 .mainLink {
     color: white !important;
+    font-size: 1.3vw !important;
     z-index: 100;
 }
 
+.mainLink:hover {
+    background: linear-gradient(to right,
+            rgb(209, 255, 255),
+            rgba(100, 200, 200, 1));
+    background-size: 100% 1px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+}
+
 .Navbar_main {
+    text-shadow: 0 0 4px #fff;
     position: relative;
     z-index: 99;
 }
+
 .nav-overlay {
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-active {
+    background: linear-gradient(to right,
+            rgb(209, 255, 255),
+            rgba(100, 200, 200, 1));
+    background-size: 100% 2px !important;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 16px #fff,
+        0 0 39px #0fa,
+        0 0 50px #0fa,
+        0 0 68px #0fa,
+        0 0 85px #0fa,
+        0 0 110px #0fa;
+}
+.off-active{
+    background-color: rgb(0, 255, 251);
+    border-radius: 5px;
+}
+.offBgc {
+}
+
+.welcome_title {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 62px #0fa,
+        0 0 82px #0fa,
+        0 0 90px #0fa,
+        0 0 140px #0fa;
 }
 
 .overlay {
@@ -32,14 +80,17 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
 .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    filter: blur(2px);
+    object-fit: cover;
 }
+
 .HomeTitle {
     position: absolute;
     top: 0;
@@ -60,8 +111,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(255, 104,131);
+    background-color: rgb(255, 104, 131);
 }
+
 .verticalRow {
     position: absolute;
     top: 100px;
@@ -71,7 +123,8 @@
     opacity: 1 !important;
     border-radius: 4px;
 }
-.aboutEl{
+
+.aboutEl {
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 5px;
     animation-name: floating;
@@ -80,33 +133,45 @@
     animation-timing-function: ease-in-out;
 }
 
+.info {
+    font-size: 1rem;
+}
+
 @keyframes floating {
     0% {
         transform: translate(0px, 0px);
     }
+
     50% {
         transform: translate(0px, 2px);
     }
+
     100% {
         transform: translate(0px, 0px);
     }
 }
+
 @keyframes floating_photo {
     0% {
         transform: translate(0px, 0px);
     }
+
     25% {
         transform: translate(0px, 3px);
     }
+
     50% {
         transform: translate(1px, 1px);
     }
+
     100% {
         transform: translate(0px, 0px);
     }
 }
+
 .about_photo {
     max-height: 200px;
+    max-width: 90%;
     animation-name: floating_photo;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -131,9 +196,30 @@
     text-align: center;
 }
 
-.link{
+.link {
     color: white;
 }
-.link:hover{
+
+.link:hover {
     color: rgb(233, 233, 233);
 }
+
+.star {
+    width: 2.35rem;
+    aspect-ratio: 1;
+}
+
+.noExp{
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    mix-blend-mode: difference;
+}
+.noExp::before{
+    content: '';
+    position: absolute;
+    z-index: 999;
+    inset: 0;
+    background-color: black;
+}
+
